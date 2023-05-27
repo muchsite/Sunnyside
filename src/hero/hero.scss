@@ -1,0 +1,36 @@
+@use "../App.scss" as *;
+
+.hero_cont {
+  overflow: hidden;
+  .hero_img {
+    width: 100%;
+  }
+  .hero_title_cont {
+    position: absolute;
+    top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include breack_up(small) {
+      top: 50%;
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 45px;
+      font-family: "Fraunces", serif;
+      @include breack_up(small) {
+        font-size: 40px;
+        letter-spacing: 5px;
+      }
+    }
+    img {
+      height: 90px;
+      @include breack_up(small) {
+        height: 115px;
+      }
+    }
+  }
+}

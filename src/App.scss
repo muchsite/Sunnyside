@@ -1,0 +1,52 @@
+$breack-up: (
+  "small": "600px",
+);
+$breack-down: (
+  "large": "599px",
+);
+
+@mixin breack_up($size) {
+  @media (min-width: map-get($breack-up, $size)) {
+    @content;
+  }
+}
+@mixin breack_down($size) {
+  @media (max-width: map-get($breack-down, $size)) {
+    @content;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,600;1,600&family=Fraunces:wght@700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,600&family=Fraunces:wght@700;900&family=Inter:wght@500&display=swap");
+// ### Primary
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+  //   font-family: "Fraunces", serif;
+}
+$Softred: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$Darkdesaturatedcyan: hsl(167, 40%, 24%);
+$Darkblue: hsl(198, 62%, 26%);
+$Darkmoderatecyan: hsl(168, 34%, 41%);
+
+// ### Neutral
+
+$Verydarkdesaturatedblue: hsl(212, 27%, 19%);
+$Verydarkgrayishblue: hsl(213, 9%, 39%);
+$Darkgrayishblue: hsl(232, 10%, 55%);
+$Grayishblue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+.dn_for_small {
+  @include breack_down(large) {
+    display: none !important;
+  }
+}
+.dn_for_large {
+  @include breack_up(small) {
+    display: none !important;
+  }
+}
